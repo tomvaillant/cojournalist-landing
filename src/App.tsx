@@ -18,17 +18,24 @@ function App() {
 
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900">
-                CoJournalist
+                co<span className="text-[#968BDF]">Journalist</span>
               </h1>
               <p className="text-xl sm:text-2xl text-slate-600 font-light leading-relaxed">
-                Focus on the reporting, let your assistant monitor the <span className="line-through">noise</span> and identify <span className="underline">patterns</span>.
+                Focus on the reporting, let your assistant monitor the <span className="inline-block relative">
+                  <span className="relative">
+                    noise
+                    <span className="absolute left-0 top-1/2 h-[2px] bg-slate-600 animate-strikethrough origin-left"></span>
+                  </span>
+                </span> and identify <span className="inline-block relative">
+                  <span className="relative animate-underline">patterns</span>
+                </span>.
               </p>
             </div>
           </div>
 
           <div className="space-y-8 pt-4">
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight">
-              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check <span className="font-bold underline text-[#968BDF]">data</span>.
+              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check <span className="font-bold text-[#968BDF]">data</span>.
             </h2>
 
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
