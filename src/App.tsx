@@ -1,0 +1,58 @@
+import { ArrowRight } from 'lucide-react';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto px-6 py-16 sm:px-8 sm:py-24">
+        <div className="space-y-12">
+          <div className="space-y-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 bg-slate-50">
+              <span className="text-xs font-semibold tracking-wide text-slate-700">
+                COMING SOON
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900">
+                CoJournalist
+              </h1>
+              <p className="text-xl sm:text-2xl text-slate-600 font-light leading-relaxed">
+                Focus on the reporting, let CoJournalist monitor the noise and identify patterns.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-8 pt-4">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight">
+              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check data.
+            </h2>
+
+            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+              <p>
+                CoJournalist addresses the resource gap facing local newsrooms and independent journalists by consolidating technical investigative tools into an accessible interface. Through natural language commands, reporters can access capabilities typically reserved for well-funded newsrooms.
+              </p>
+
+              <p>
+                Whether you need to scrape Instagram profiles or government websites for public records, query local databases, use OSINT tools, monitor elected officials' calendars to investigate connections with local entities, or fact-check claims, CoJournalist supports your reporting through conversational requests.
+              </p>
+            </div>
+
+            <div className="pt-6">
+              <a
+                href="https://buriedsignals.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors duration-200 group"
+              >
+                <span>Stay Tuned</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
