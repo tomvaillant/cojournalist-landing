@@ -2,8 +2,12 @@ import { ArrowRight } from 'lucide-react';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-6 py-16 sm:px-8 sm:py-24">
+    <div className="min-h-screen bg-white relative">
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-4 sm:inset-6 md:inset-8 border border-slate-200 rounded-3xl"></div>
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-6 py-16 sm:px-8 sm:py-24">
         <div className="space-y-12">
           <div className="space-y-6">
             <div className="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 bg-slate-50">
