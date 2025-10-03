@@ -18,7 +18,7 @@ function App() {
 
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900">
-                co<span className="text-[#968BDF]">Journalist</span>
+                co<span className="bg-gradient-to-r from-[#968BDF] to-[#7c6fc7] bg-clip-text text-transparent">Journalist</span>
               </h1>
               <p className="text-xl sm:text-2xl text-slate-600 font-light leading-relaxed">
                 Focus on the reporting, let your assistant monitor the <span className="inline-block relative">
@@ -27,7 +27,10 @@ function App() {
                     <span className="absolute left-0 top-1/2 h-[2px] bg-slate-600 animate-strikethrough origin-left"></span>
                   </span>
                 </span> and identify <span className="inline-block relative">
-                  <span className="relative animate-underline">patterns</span>
+                  <span className="relative">
+                    patterns
+                    <span className="absolute left-0 bottom-0 h-[2px] bg-slate-600 animate-underline origin-left"></span>
+                  </span>
                 </span>.
               </p>
             </div>
