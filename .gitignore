@@ -7,8 +7,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+dist
 dist-ssr
 *.local
+
+# Source files (don't ignore, they're part of repo)
+# But ignore built output at root
+/assets
 
 .vscode/*
 !.vscode/extensions.json

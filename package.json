@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "preview:prod": "vite preview --base /cojournalist-landing/",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
