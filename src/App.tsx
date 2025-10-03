@@ -10,7 +10,7 @@ function App() {
       <div className="relative max-w-4xl mx-auto px-6 py-16 sm:px-8 sm:py-24">
         <div className="space-y-12">
           <div className="space-y-6">
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 bg-slate-50">
+            <div className="inline-flex items-center px-3 py-1 rounded-full border border-[#968BDF] bg-slate-50">
               <span className="text-xs font-semibold tracking-wide text-slate-700">
                 COMING SOON
               </span>
@@ -21,14 +21,14 @@ function App() {
                 CoJournalist
               </h1>
               <p className="text-xl sm:text-2xl text-slate-600 font-light leading-relaxed">
-                Focus on the reporting, let CoJournalist monitor the noise and identify patterns.
+                Focus on the reporting, let your assistant monitor the <span className="line-through">noise</span> and identify <span className="underline">patterns</span>.
               </p>
             </div>
           </div>
 
           <div className="space-y-8 pt-4">
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight">
-              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check data.
+              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check <span className="font-bold underline text-[#968BDF]">data</span>.
             </h2>
 
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
@@ -46,7 +46,7 @@ function App() {
                 href="https://buriedsignals.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors duration-200 group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#968BDF] to-[#7c6fc7] text-white font-medium rounded-lg hover:from-[#8578cc] hover:to-[#6b5eb4] transition-all duration-200 group shadow-sm"
               >
                 <span>Stay Tuned</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
