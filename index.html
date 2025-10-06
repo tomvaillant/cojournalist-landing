@@ -1,22 +1,339 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
-    <meta property="og:title" content="coJournalist" />
-    <meta property="og:description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
-    <meta property="og:image" content="/meta.jpg" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="coJournalist" />
-    <meta name="twitter:description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
-    <meta name="twitter:image" content="/meta.jpg" />
-    <title>coJournalist</title>
-    <script type="module" src="/src/main.tsx"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
+  <meta property="og:title" content="coJournalist" />
+  <meta property="og:description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
+  <meta property="og:image" content="meta.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="coJournalist" />
+  <meta name="twitter:description" content="Focus on the reporting, let your assistant monitor the noise and identify patterns." />
+  <meta name="twitter:image" content="meta.jpg" />
+  <title>coJournalist</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: white;
+      color: #0f172a;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Border frame */
+    .border-frame {
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 1.5rem;
+      pointer-events: none;
+    }
+
+    @media (min-width: 640px) {
+      .border-frame {
+        inset: 1.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .border-frame {
+        inset: 2rem;
+      }
+    }
+
+    /* Main container */
+    .container {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 6rem 2rem;
+      }
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid #968BDF;
+      background: #f8fafc;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #334155;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin: 1.5rem 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 3.75rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 4.5rem;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #968BDF, #7c6fc7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .tagline {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Animated text effects */
+    .strike-word {
+      position: relative;
+      display: inline-block;
+    }
+
+    .strike-line {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 2px;
+      background: #475569;
+      width: 0;
+      animation: strikethrough 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+    }
+
+    .underline-word {
+      position: relative;
+      display: inline-block;
+    }
+
+    .underline-line {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background: #475569;
+      width: 0;
+      animation: underline 0.6s cubic-bezier(0.4, 0, 0.2, 1) 2.1s forwards;
+    }
+
+    @keyframes strikethrough {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes underline {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Subheading */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.375;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      h2 {
+        font-size: 1.875rem;
+      }
+    }
+
+    .highlight {
+      font-weight: 700;
+      color: #968BDF;
+    }
+
+    /* Paragraphs */
+    p {
+      font-size: 1.125rem;
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Button */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, #968BDF, #7c6fc7);
+      color: white;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      margin-top: 1.5rem;
+    }
+
+    .button:hover {
+      background: linear-gradient(to right, #8578cc, #6b5eb4);
+    }
+
+    .button svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.2s;
+    }
+
+    .button:hover svg {
+      transform: translateX(0.25rem);
+    }
+
+    /* Divider section */
+    .divider-section {
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .divider-section {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .divider-section {
+        padding: 0 2rem;
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    /* Footer section */
+    .footer {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .footer {
+        padding: 3rem 2rem 6rem;
+      }
+    }
+
+    .footer-content {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+    }
+
+    .logo {
+      height: 3rem;
+      opacity: 0.6;
+    }
+
+    /* Spacing utilities */
+    .mb-3 {
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="border-frame"></div>
+
+  <div class="container">
+    <div class="mb-3">
+      <div class="badge">COMING SOON</div>
+
+      <h1>
+        co<span class="gradient-text">Journalist</span>
+      </h1>
+
+      <p class="tagline">
+        Focus on the reporting, let your assistant monitor the
+        <span class="strike-word">
+          noise
+          <span class="strike-line"></span>
+        </span>
+        and identify
+        <span class="underline-word">
+          patterns
+          <span class="underline-line"></span>
+        </span>.
+      </p>
+    </div>
+
+    <div>
+      <h2>The journalist's AI assistant for data collection, monitoring, investigation and verification.</h2>
+
+      <p>
+        CoJournalist consolidates technical investigative tools into an accessible interface, addressing the resource constraints facing small newsrooms and independent journalists to help expand the coverage of local news. Through natural language commands, reporters gain access to capabilities typically reserved for well-funded organizations.
+      </p>
+
+      <p>
+        The platform enables journalists to scrape public data from social media profiles and government websites, query local databases, use OSINT tools and verify claims—all through conversational requests.
+      </p>
+
+      <a href="https://buriedsignals.substack.com/" target="_blank" rel="noopener noreferrer" class="button">
+        <span>Stay Tuned</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider-section">
+    <div class="divider"></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-content">
+      <span class="eyebrow">SUPPORTED BY</span>
+      <img src="grs.svg" alt="GRS Logo" class="logo" />
+    </div>
+  </div>
+</body>
 </html>
