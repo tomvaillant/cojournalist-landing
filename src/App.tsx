@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 function App() {
   return (
     <div className="min-h-screen bg-white relative">
-      <div className="fixed inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-4 sm:inset-6 md:inset-8 border border-slate-200 rounded-3xl"></div>
       </div>
 
@@ -38,16 +38,16 @@ function App() {
 
           <div className="space-y-8 pt-4">
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 leading-tight">
-              The journalist's AI assistant that can scrape, collect, monitor, investigate and fact-check <span className="font-bold text-[#968BDF]">data</span>.
+              The journalist's AI assistant for data collection, monitoring, investigation and verification.
             </h2>
 
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
-                CoJournalist addresses the resource gap facing local newsrooms and independent journalists by consolidating technical investigative tools into an accessible interface. Through natural language commands, reporters can access capabilities typically reserved for well-funded newsrooms.
+                CoJournalist consolidates technical investigative tools into an accessible interface, addressing the resource constraints facing small newsrooms and independent journalists to help expand the coverage of local news. Through natural language commands, reporters gain access to capabilities typically reserved for well-funded organizations.
               </p>
 
               <p>
-                Whether you need to scrape Instagram profiles or government websites for public records, query local databases, use OSINT tools, monitor elected officials' calendars to investigate connections with local entities, or fact-check claims, CoJournalist supports your reporting through conversational requests.
+                The platform enables journalists to scrape public data from social media profiles and government websites, query local databases, use OSINT tools and verify claims—all through conversational requests.
               </p>
             </div>
 
@@ -63,6 +63,19 @@ function App() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="px-4 sm:px-6 md:px-8">
+        <div className="h-px bg-slate-200"></div>
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-6 pt-8 pb-16 sm:px-8 sm:pt-12 sm:pb-24">
+        <div className="inline-flex flex-col gap-3">
+          <span className="text-xs font-semibold tracking-wide text-slate-400">
+            SUPPORTED BY
+          </span>
+          <img src="/grs.svg" alt="GRS Logo" className="h-12 opacity-60" />
         </div>
       </div>
     </div>
